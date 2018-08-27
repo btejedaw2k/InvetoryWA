@@ -12,13 +12,14 @@ namespace InventoryWA.Models
         [Key, Column(Order = 1)]
         public int Categie_Id { get; set; }
 
-        [MaxLength(10, ErrorMessage = "Not allow more than 10 characters."), Required(ErrorMessage = "field codigo is required."), Index(IsUnique =true)]
+        [MaxLength(10, ErrorMessage = "No se permiten mas de 10 caracteres para el código de producto."), Required(ErrorMessage = "Campo código es requerido."), Index(IsUnique =true)]
         public string Codigo { get; set; }
         
+        [Required(ErrorMessage = "Debe de ingresar una descripción.")]
         public string Descripcion { get; set; }
         public string Detalle { get; set; }
 
-        //including master tables Foreign Key
+        //Including master tables Foreign Key
         [ForeignKey("Categie_Id")]
         public virtual Categorie Categorie { get; set; }
     }
