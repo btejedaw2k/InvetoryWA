@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <!-- Google Font -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/angularapp")
 </head>
-<body class="hold-transition skin-blue sidebar-mini" style="padding: 0 !important;" ng-app="InventoryWA" ng-controller="RootController">
-    <div class="wrapper">
+<body class="hold-transition skin-blue sidebar-mini" ng-app="InventoryWA" ng-controller="RootController">
+    <div class="wrapper navbar navbar-inverse navbar-fixed-top">
 
         <!-- Main Header -->
         <header class="main-header">
@@ -257,7 +255,7 @@
             </section>
 
             <!-- Main content -->
-            <section class="content container-fluid">
+            <section class="content container-fluid body-content">
 
                 @RenderBody()
 

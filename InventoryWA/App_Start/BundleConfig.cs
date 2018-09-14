@@ -34,16 +34,16 @@ namespace InventoryWA
             bundles.Add(new ScriptBundle("~/admin-lte/js").Include(
                       "~/admin-lte/js/adminlte.js",
                       "~/admin-lte/plugins/fastclick/fastclick.js", 
-                      "~/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"));
+                      "~/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome.css",
-                      "~/Content/site.css",
+                      "~/Content/Site.css",
                       "~/admin-lte/css/AdminLTE.css",
                       "~/admin-lte/css/skins/skin-blue.css",
                       "~/admin-lte/Ionicons/ionicons.css",
-                      "~/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"));
+                      "~/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css"));
         }
     }
 }
