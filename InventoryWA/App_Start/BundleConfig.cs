@@ -14,6 +14,11 @@ namespace InventoryWA
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/admin-lte/js").Include(
+                        "~/admin-lte/js/adminlte.js",
+                        "~/admin-lte/plugins/fastclick/fastclick.js",
+                        "~/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
@@ -31,19 +36,14 @@ namespace InventoryWA
                       "~/Scripts/app/app.js",
                       "~/Scripts/app/MainController.js"));
 
-            bundles.Add(new ScriptBundle("~/admin-lte/js").Include(
-                      "~/admin-lte/js/adminlte.js",
-                      "~/admin-lte/plugins/fastclick/fastclick.js", 
-                      "~/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/font-awesome.css",
-                      "~/Content/Site.css",
-                      "~/admin-lte/css/AdminLTE.css",
-                      "~/admin-lte/css/skins/skin-blue.css",
-                      "~/admin-lte/Ionicons/ionicons.css",
-                      "~/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css"));
+                        "~/Content/bootstrap.css",
+                        "~/Content/font-awesome.css",
+                        "~/Content/site.css",
+                        "~/admin-lte/css/AdminLTE.css",
+                        "~/admin-lte/Ionicons/css/ionicons.css",
+                        "~/admin-lte/css/skins/skin-blue.css",
+                        "~/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"));
         }
     }
 }
