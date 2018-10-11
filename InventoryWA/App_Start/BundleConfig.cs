@@ -44,8 +44,10 @@ namespace InventoryWA
                         "~/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"));
 
             // add controllers for application Angular JS
+            bundles.Add(new ScriptBundle("~/bundles/appAngular").Include(
+                        "~/Scripts/app/app.js"));
             bundles.Add(new ScriptBundle("~/bundles/appCategories").Include(
-                        "~/Scripts/app/Categories/app.js",
+                        
                         "~/Scripts/app/Categories/ServiceCategorie.js",
                         "~/Scripts/app/Categories/CategoriesController.js"));
         }

@@ -7,6 +7,7 @@ app
             $routeProvider
                 .when('/Categories', { templateUrl: '/templates/categories/main.html', controller: 'CategorieController' })
                 .when('/Categories/Create', { templateUrl: '/templates/categories/create.html', controller: 'CategorieControllerCreate' })
+                .when('/Categories/Edit/:id', { templateUrl: '/templates/categories/edit.html', controller: 'CategorieControllerEdit' })
                 .otherwise({ redirectTo: '/Categories' });
         }]
     );

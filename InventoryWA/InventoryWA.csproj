@@ -1783,7 +1783,7 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\app\Categories\app.js" />
+    <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\Categories\CategoriesController.js" />
     <Content Include="Scripts\app\Categories\ServiceCategorie.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2624,6 +2624,7 @@
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Templates\Categories\Create.html" />
+    <Content Include="Templates\Categories\Edit.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
