@@ -6,14 +6,14 @@ namespace InventoryWA.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class InitialDB : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
+    public sealed partial class updateCategoryNombreLength : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updateCategoryNombreLength));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808242118132_InitialDB"; }
+            get { return "201810110252487_updateCategoryNombreLength"; }
         }
         
         string IMigrationMetadata.Source

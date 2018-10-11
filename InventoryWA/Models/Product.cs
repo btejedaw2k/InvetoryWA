@@ -6,7 +6,7 @@ namespace InventoryWA.Models
 {
     public class Product
     {
-        [Key, Column(Order = 0)]
+        [Key, Column(Order = 0), DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Key, Column(Order = 1)]

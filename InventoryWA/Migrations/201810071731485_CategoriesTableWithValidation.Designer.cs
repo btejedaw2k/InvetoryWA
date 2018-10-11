@@ -7,13 +7,13 @@ namespace InventoryWA.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AllowMoreCaractersForProductCode : IMigrationMetadata
+    public sealed partial class CategoriesTableWithValidation : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AllowMoreCaractersForProductCode));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CategoriesTableWithValidation));
         
         string IMigrationMetadata.Id
         {
-            get { return "201809131339531_AllowMoreCaractersForProductCode"; }
+            get { return "201810071731485_CategoriesTableWithValidation"; }
         }
         
         string IMigrationMetadata.Source

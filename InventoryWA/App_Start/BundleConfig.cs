@@ -25,25 +25,29 @@ namespace InventoryWA
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/toastr.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                       "~/Scripts/angular.js",
                       "~/Scripts/angular-resource.js",
                       "~/Scripts/angular-route.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/angularapp").Include(
-                      "~/Scripts/app/app.js",
-                      "~/Scripts/app/MainController.js"));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap.css",
                         "~/Content/font-awesome.css",
                         "~/Content/site.css",
+                        "~/Content/toastr.css",
                         "~/admin-lte/css/AdminLTE.css",
                         "~/admin-lte/Ionicons/css/ionicons.css",
                         "~/admin-lte/css/skins/skin-blue.css",
                         "~/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"));
+
+            // add controllers for application Angular JS
+            bundles.Add(new ScriptBundle("~/bundles/appCategories").Include(
+                        "~/Scripts/app/Categories/app.js",
+                        "~/Scripts/app/Categories/ServiceCategorie.js",
+                        "~/Scripts/app/Categories/CategoriesController.js"));
         }
     }
 }
