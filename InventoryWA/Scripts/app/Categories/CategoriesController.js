@@ -13,7 +13,7 @@ app.
 
         $scope.DeleteCategorie = function (id) {
             ServiceCategorie.DeleteCategorie(id).then(function () {
-                toastr.success('Categria eliminada correctamente', 'Informacion eliminada');
+                toastr.warning('Categria eliminada correctamente', 'Informacion eliminada');
                 GetAllData();
             }, function () {
                 toastr.error('No se pudo eliminar la categoria');
@@ -21,6 +21,7 @@ app.
         }
     }])
     .controller('CategorieControllerCreate', ['$scope', '$location', 'ServiceCategorie', function ($scope, $location, ServiceCategorie) {
+        
         $scope.SaveData = function (categorie) {
             ServiceCategorie.SaveData(categorie).then(function () {
                 toastr.success('Categoria guardado correctament.', 'Informacion guardada.');
@@ -31,8 +32,12 @@ app.
     }])
     .controller('CategorieControllerEdit', ['$scope', '$routeParams', '$location', 'ServiceCategorie', function ($scope, $routeParams, $location, ServiceCategorie) {
         $scope.categorie = {};
-
+        $scope.states = { showUpdateButton: false };
         ServiceCategorie.GetCategorie($routeParams.id).then(function (result) {
+            console.log(result);
+            if (result !== '')
+                $scope.states.showUpdateButton = true;
+            $scope.states.showUpdateButton = true;
             $scope.categorie = result;
         }, function () {
             toastr.error('Error al obtener la Categira ' + $routeParams.nombre);

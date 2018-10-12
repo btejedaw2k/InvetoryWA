@@ -19,7 +19,7 @@ namespace InventoryWA.Models
         public string Code { get; set; }
 
         [DisplayName("Nombre"), Index("NombreCategoriaIndex", IsUnique = true)]
-        [StringLength(35, MinimumLength =6, ErrorMessage = "Nombre de la categoria debe ser entre 6 y 15 caracteres"), Required(ErrorMessage = "Ingrese nombre de categoria")]
+        [StringLength(35, MinimumLength =2, ErrorMessage = "Nombre de la categoria debe ser entre 6 y 15 caracteres"), Required(ErrorMessage = "Ingrese nombre de categoria")]
         public string Nombre { get; set; }
 
         //Icluding foreign table
