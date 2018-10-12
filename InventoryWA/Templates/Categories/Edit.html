@@ -1,14 +1,13 @@
-﻿
-<form class="form-horizontal" ng-submit="EditCategorie(categorie)">
+﻿<form class="form-horizontal" name="frmCreateCategorie" ng-submit="EditCategorie(categorie)">
     <div class=" box">
         <div class="box-header with-border">
-            <h3 class="box-title">Categorias.<small>Crear Categorias</small></h3>
+            <h3 class="box-title">Categorias.<small>Editar Categorias</small></h3>
         </div>
         <div class="box-body">
             <div class="form-group">
                 <label for="categorie.Code" class="control-label col-md-2">Codigo</label>
                 <div class="col-md-10">
-                    <input type="text" name="categorie.Code" maxlength="15" ng-model="categorie.Code" class="form-control" />
+                    <input type="text" name="Code" maxlength="15" ng-model="categorie.Code" ng-minlength="3" ng-maxlength="5" required class="form-control" />
                     <span class="text-danger" ng-show="(frmCreateCategorie.Code.$touched || frmCreateCategorie.Code.$dirty) && frmCreateCategorie.Code.$invalid">
                         <span ng-show="frmCreateCategorie.Code.$error.required">Codigo de catigoria es requerido</span>
                         <span ng-show="frmCreateCategorie.Code.$error.minlength">Codigo debe ser mayor o igual a 3 carateres</span>
@@ -20,7 +19,7 @@
             <div class="form-group">
                 <label for="categorie.Nombre" class="control-label col-md-2">Nombre</label>
                 <div class="col-md-10">
-                    <input type="text" name="categorie.Nombre" max="15" ng-model="categorie.Nombre" class="form-control" />
+                    <input type="text" name="Nombre" max="15" ng-model="categorie.Nombre" ng-minlength="2" ng-maxlength="35" required class="form-control" />
                     <span class="text-danger" ng-show="(frmCreateCategorie.Nombre.$touched || frmCreateCategorie.Nombre.$dirty) && frmCreateCategorie.Nombre.$invalid">
                         <span ng-show="frmCreateCategorie.Nombre.$error.required">Nombre de catigoria es requerido</span>
                         <span ng-show="frmCreateCategorie.Nombre.$error.minlength">Nombre debe ser mayor o igual a 2 carateres</span>

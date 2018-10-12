@@ -1,19 +1,7 @@
 ﻿var app = angular.module('InventoryWA');
     app.factory('ServiceCategorie', ['$http', '$q', function ($http, $q) {
         var service = {};
-
-        service.GetAllData = function () {
-            var deferred = $q.defer();
-            $http.get(
-                '/Categories/GetAllCategories/'
-            ).then(function (result) {
-                deferred.resolve(result.data);
-            }, function () {
-                deferred.reject();
-            });
-            return deferred.promise;
-        };
-
+        
         service.SaveData = function (categorie) {
             var deferred = $q.defer();
             $http.post(
@@ -30,6 +18,18 @@
             var deferred = $q.defer();
             $http.get(
                 '/Categories/Details/' + id
+            ).then(function (result) {
+                deferred.resolve(result.data);
+            }, function () {
+                deferred.reject();
+            });
+            return deferred.promise;
+        };
+
+        service.GetAllData = function () {
+            var deferred = $q.defer();
+            $http.get(
+                '/Categories/GetAllCategories/'
             ).then(function (result) {
                 deferred.resolve(result.data);
             }, function () {
@@ -61,6 +61,6 @@
             });
             return deferred.promise;
         }
-        
+                
         return service;
     }]);
