@@ -50,41 +50,32 @@
             return deferred.promise;
         }
 
-        service.DeleteCategorie = function (id) {
+        service.DeleteCategorie = function (id, Nombre) {
             var deferred = $q.defer();
-            $http.post(
-                '/Categories/Delete/', {id : id}
-            ).then(function () {
-                deferred.resolve();
-            }, function () {
-                deferred.reject;
-            });
+            if (confirm('Seguro que desea eliminar la categoria <<' + Nombre + '>>?')) {
+                $http.post(
+                    '/Categories/Delete/', { id: id }
+                ).then(function () {
+                    deferred.resolve();
+                }, function () {
+                    deferred.reject;
+                });
+            }
             return deferred.promise;
         }
 
-        service.ChechUniqueCode = function (id, Code) {
-            var deffered = $q.defer();
+        service.GetCodeExiste = function (id, property, value) {
+            var deferred = $q.defer();
             $http.get(
-                "/Categories/GetCodeCount/", { id : id, Code : Code }
+                '/Categories/GetCategorieExist/' + id + "?property=" + property + "&value=" + value
             ).then(function (result) {
-                deferred.resolve(result);
-            }).then(function () {
-                deffered.resolve()
+                console.log(result);
+                deferred.resolve(result.data.status);
+            }, function () {
+                deferred.reject();
             });
-            return deffered.promise;
-        }
-
-        service.ChechUniqueName = function (id, Name) {
-            var deffered = $q.defer();
-            $http.get(
-                "/Categories/GetNameCount/", { id : id, Name : Name }
-            ).then(function (result) {
-                deferred.resolve(result);
-            }).then(function () {
-                deffered.resolve()
-            });
-            return deffered.promise;
-        }
+            return deferred.promise;
+        };
                 
         return service;
     }]);

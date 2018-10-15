@@ -25,31 +25,36 @@ namespace InventoryWA
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/toastr.js"));
+                        "~/Scripts/bootstrap.js",
+                        "~/Scripts/toastr.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                      "~/Scripts/angular.js",
-                      "~/Scripts/angular-resource.js",
-                      "~/Scripts/angular-route.js"));
+                        "~/Scripts/angular.js",
+                        "~/Scripts/angular-animate.min.js",
+                        "~/Scripts/angular-route.min.js",
+                        "~/Scripts/angular-arial.min.js",
+                        "~/Scripts/angular-messages.min.js",
+                        "~/Scripts/angular-resource.min.js",
+                        "~/Scripts/angular-material.min.js"
+                        ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                        "~/Content/bootstrap.css",
-                        "~/Content/font-awesome.css",
+                        "~/Content/bootstrap.min.css",
+                        "~/Content/font-awesome.min.css",
                         "~/Content/site.css",
-                        "~/Content/toastr.css",
-                        "~/admin-lte/css/AdminLTE.css",
-                        "~/admin-lte/Ionicons/css/ionicons.css",
-                        "~/admin-lte/css/skins/skin-blue.css",
+                        "~/Content/toastr.min.css",
+                        "~/admin-lte/css/AdminLTE.min.css",
+                        "~/admin-lte/Ionicons/css/ionicons.min.css",
+                        "~/admin-lte/css/skins/skin-blue.min.css",
                         "~/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"));
 
             // add controllers for application Angular JS
             bundles.Add(new ScriptBundle("~/bundles/appAngular").Include(
                         "~/Scripts/app/app.js"));
             bundles.Add(new ScriptBundle("~/bundles/appCategories").Include(
-                        
-                        "~/Scripts/app/Categories/ServiceCategorie.js",
-                        "~/Scripts/app/Categories/CategoriesController.js"));
+                        "~/Scripts/app/Categories/CategorieService.js",
+                        "~/Scripts/app/Categories/CategorieDirective.js",
+                        "~/Scripts/app/Categories/CategorieController.js"));
         }
     }
 }
