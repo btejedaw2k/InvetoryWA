@@ -61,6 +61,30 @@
             });
             return deferred.promise;
         }
+
+        service.ChechUniqueCode = function (id, Code) {
+            var deffered = $q.defer();
+            $http.get(
+                "/Categories/GetCodeCount/", { id : id, Code : Code }
+            ).then(function (result) {
+                deferred.resolve(result);
+            }).then(function () {
+                deffered.resolve()
+            });
+            return deffered.promise;
+        }
+
+        service.ChechUniqueName = function (id, Name) {
+            var deffered = $q.defer();
+            $http.get(
+                "/Categories/GetNameCount/", { id : id, Name : Name }
+            ).then(function (result) {
+                deferred.resolve(result);
+            }).then(function () {
+                deffered.resolve()
+            });
+            return deffered.promise;
+        }
                 
         return service;
     }]);
