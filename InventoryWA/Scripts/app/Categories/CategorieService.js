@@ -50,15 +50,17 @@
             return deferred.promise;
         }
 
-        service.DeleteCategorie = function (id) {
+        service.DeleteCategorie = function (id, Nombre) {
             var deferred = $q.defer();
-            $http.post(
-                '/Categories/Delete/', {id : id}
-            ).then(function () {
-                deferred.resolve();
-            }, function () {
-                deferred.reject;
-            });
+            if (confirm('Seguro que desea eliminar la categoria <<' + Nombre + '>>?')) {
+                $http.post(
+                    '/Categories/Delete/', { id: id }
+                ).then(function () {
+                    deferred.resolve();
+                }, function () {
+                    deferred.reject;
+                });
+            }
             return deferred.promise;
         }
 

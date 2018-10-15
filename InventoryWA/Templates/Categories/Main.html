@@ -19,7 +19,9 @@
                     <td>
                         <div class="btn-group">
                             <a class="btn btn-sm btn-default" href="#/Categories/Edit/{{Categorie.Id}}"><span class="glyphicon glyphicon-edit"></span></a>
-                            <a href="" class="btn btn-sm btn-danger" ng-click="DeleteCategorie(Categorie.Id)"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a href="" class="btn btn-sm btn-danger" ng-click="DeleteCategorie(Categorie.Id, Categorie.Nombre, $event)">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
                         </div>
                     </td>
                     <td>{{Categorie.Id}}</td>

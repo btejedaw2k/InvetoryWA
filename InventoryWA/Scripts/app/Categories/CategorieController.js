@@ -1,7 +1,7 @@
 ﻿var app = angular.module('InventoryWA');
 
 app.
-    controller('CategorieController', ['$scope', 'ServiceCategorie', function ($scope, ServiceCategorie) {
+    controller('CategorieController', ['$scope',  'ServiceCategorie', function ($scope, ServiceCategorie) {
         $scope.categories = [];
         GetAllData();
 
@@ -11,8 +11,10 @@ app.
             });
         };
 
-        $scope.DeleteCategorie = function (id) {
-            ServiceCategorie.DeleteCategorie(id).then(function () {
+        $scope.DeleteCategorie = function (id, Nombre, $event) {
+            
+
+            ServiceCategorie.DeleteCategorie(id, Nombre).then(function () {
                 toastr.warning('Categria eliminada correctamente', 'Informacion eliminada');
                 GetAllData();
             }, function () {
