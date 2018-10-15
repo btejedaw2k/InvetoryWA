@@ -1784,8 +1784,9 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\Categories\CategoriesController.js" />
-    <Content Include="Scripts\app\Categories\ServiceCategorie.js" />
+    <Content Include="Scripts\app\Categories\CategorieController.js" />
+    <Content Include="Scripts\app\Categories\CategorieDirective.js" />
+    <Content Include="Scripts\app\Categories\CategorieService.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

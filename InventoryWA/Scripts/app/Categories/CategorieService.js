@@ -61,6 +61,19 @@
             });
             return deferred.promise;
         }
+
+        service.GetCodeExiste = function (id, property, value) {
+            var deferred = $q.defer();
+            $http.get(
+                '/Categories/GetCategorieExist/' + id + "?property=" + property + "&value=" + value
+            ).then(function (result) {
+                console.log(result);
+                deferred.resolve(result.data.status);
+            }, function () {
+                deferred.reject();
+            });
+            return deferred.promise;
+        };
                 
         return service;
     }]);

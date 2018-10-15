@@ -25,13 +25,13 @@ namespace InventoryWA
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/toastr.js"));
+                        "~/Scripts/bootstrap.js",
+                        "~/Scripts/toastr.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                      "~/Scripts/angular.js",
-                      "~/Scripts/angular-resource.js",
-                      "~/Scripts/angular-route.js"));
+                        "~/Scripts/angular.js",
+                        "~/Scripts/angular-resource.js",
+                        "~/Scripts/angular-route.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap.css",
@@ -47,9 +47,9 @@ namespace InventoryWA
             bundles.Add(new ScriptBundle("~/bundles/appAngular").Include(
                         "~/Scripts/app/app.js"));
             bundles.Add(new ScriptBundle("~/bundles/appCategories").Include(
-                        
-                        "~/Scripts/app/Categories/ServiceCategorie.js",
-                        "~/Scripts/app/Categories/CategoriesController.js"));
+                        "~/Scripts/app/Categories/CategorieService.js",
+                        "~/Scripts/app/Categories/CategorieDirective.js",
+                        "~/Scripts/app/Categories/CategorieController.js"));
         }
     }
 }

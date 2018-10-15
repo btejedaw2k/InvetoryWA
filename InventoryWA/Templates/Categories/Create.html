@@ -7,11 +7,13 @@
             <div class="form-group">
                 <label for="categorie.Code" class="control-label col-md-2">Codigo</label>
                 <div class="col-md-10">
-                    <input type="text" name="Code" maxlength="15" ng-model="categorie.Code" ng-minlength="3" ng-maxlength="5" required class="form-control" />
+                    <input type="text" name="Code" maxlength="15" ng-model="categorie.Code" ng-minlength="3" ng-maxlength="5" required class="form-control" 
+                           wc-unique="{id: 0, property: 'Code'}"/>
                     <span class="text-danger" ng-show="(frmCreateCategorie.Code.$touched || frmCreateCategorie.Code.$dirty) && frmCreateCategorie.Code.$invalid">
                         <span ng-show="frmCreateCategorie.Code.$error.required">Codigo de catigoria es requerido</span>
                         <span ng-show="frmCreateCategorie.Code.$error.minlength">Codigo debe ser mayor o igual a 3 carateres</span>
                         <span ng-show="frmCreateCategorie.Code.$error.maxlength">Codigo debe de ser menor o igual a 5 Caracteres</span>
+                        <span ng-show="frmCreateCategorie.Code.$error.unique">Codigo de Cateoria ya exite</span>
                     </span>
                 </div>
             </div>
@@ -19,16 +21,18 @@
             <div class="form-group">
                 <label for="categorie.Nombre" class="control-label col-md-2">Nombre</label>
                 <div class="col-md-10">
-                    <input type="text" name="Nombre" max="15" ng-model="categorie.Nombre" ng-minlength="2" ng-maxlength="35" required class="form-control" />
+                    <input type="text" name="Nombre" max="15" ng-model="categorie.Nombre" ng-minlength="2" ng-maxlength="35" required class="form-control"
+                           wc-unique="{id: 0, property: 'Nombre'}"/>
                     <span class="text-danger" ng-show="(frmCreateCategorie.Nombre.$touched || frmCreateCategorie.Nombre.$dirty) && frmCreateCategorie.Nombre.$invalid">
                         <span ng-show="frmCreateCategorie.Nombre.$error.required">Nombre de catigoria es requerido</span>
                         <span ng-show="frmCreateCategorie.Nombre.$error.minlength">Nombre debe ser mayor o igual a 2 carateres</span>
                         <span ng-show="frmCreateCategorie.Nombre.$error.maxlength">Nombre debe de ser menor o igual a 35 Caracteres</span>
+                        <span ng-show="frmCreateCategorie.Nombre.$error.unique">Nombre de Cateoria ya exite</span>
                     </span>
                 </div>
             </div>
         </div>
-        <div class=" box-footer">
+        <div class="box-footer">.
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Crear" class="btn btn-primary" ng-disabled="frmCreateCategorie.$invalid" />

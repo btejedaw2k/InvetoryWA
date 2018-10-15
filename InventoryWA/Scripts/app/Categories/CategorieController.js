@@ -32,12 +32,7 @@ app.
     }])
     .controller('CategorieControllerEdit', ['$scope', '$routeParams', '$location', 'ServiceCategorie', function ($scope, $routeParams, $location, ServiceCategorie) {
         $scope.categorie = {};
-        $scope.states = { showUpdateButton: false };
         ServiceCategorie.GetCategorie($routeParams.id).then(function (result) {
-            console.log(result);
-            if (result !== '')
-                $scope.states.showUpdateButton = true;
-            $scope.states.showUpdateButton = true;
             $scope.categorie = result;
         }, function () {
             toastr.error('Error al obtener la Categira ' + $routeParams.nombre);

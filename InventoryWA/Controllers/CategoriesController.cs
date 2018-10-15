@@ -76,5 +76,27 @@ namespace InventoryWA.Controllers
             db.SaveChanges();
             return Json(new { status = "success" }, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult GetCategorieExist(int id, string property, string value)
+        {
+            if (value != "")
+            {
+                if (property == "Code")
+                {
+                    if (db.Categories.Where(c => c.Id != id && c.Code == value).Count() > 0)
+                    {
+                        return Json(new { status = false }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+                if (property == "Nombre")
+                {
+                    if (db.Categories.Where(c => c.Id != id && c.Nombre == value).Count() > 0)
+                    {
+                        return Json(new { status = false }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+            }
+            return Json(new { status = true }, JsonRequestBehavior.AllowGet);
+        }
     }
 }
