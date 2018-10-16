@@ -1,4 +1,4 @@
-﻿var app = angular.module('InventoryWA', ['ngRoute', 'ngResource', 'ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
+﻿var app = angular.module('InventoryWA', ['ngRoute', 'ngResource', 'ngDialog']);
 
 app
     .config(['$routeProvider', '$locationProvider',

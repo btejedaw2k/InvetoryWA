@@ -1,7 +1,7 @@
 ﻿var app = angular.module('InventoryWA');
 
 app.
-    controller('CategorieController', ['$scope',  'ServiceCategorie', function ($scope, ServiceCategorie) {
+    controller('CategorieController', ['$scope', 'ngDialog', 'ServiceCategorie', function ($scope, ngDialog, ServiceCategorie) {
         $scope.categories = [];
         GetAllData();
 
@@ -11,15 +11,34 @@ app.
             });
         };
 
-        $scope.DeleteCategorie = function (id, Nombre, $event) {
+        $scope.DeleteCategorie = function (id, Nombre) {
+            $('#toast-container').remove();
+            toastr.warning(
+                "Usted esta eliminando la categoria. <b>" + Nombre + "</b><br />Desea continuar?<br />" +
+                "<button type='button' id='confirmationRevertYes' class='btn btn-primary' value='yes'>Eliminar</button>",
+                '<h4>Eliminando Categoria.</h4>',
+                {
+                    tapToDismiss: false,
+                    timeOut: 0,
+                    extendedTimeOut: 0,
+                    closeButton: true,
+                    allowHtml: true,
+                    preventOpenDuplicates: true,
+                    newestOnTop: true,
+                    onShown: function (toast) {
+                        $("#confirmationRevertYes").click(function () {
+                            ServiceCategorie.DeleteCategorie(id, Nombre).then(function () {
+                                toastr.success('Categria eliminada correctamente', 'Informacion eliminada');
+                                $('#toast-container').remove();
+                                GetAllData();
+                            }, function () {
+                                toastr.error('No se pudo eliminar la categoria');
+                            });
+                        });
+                    }
+                },
+            );
             
-
-            ServiceCategorie.DeleteCategorie(id, Nombre).then(function () {
-                toastr.warning('Categria eliminada correctamente', 'Informacion eliminada');
-                GetAllData();
-            }, function () {
-                toastr.error('No se pudo eliminar la categoria');
-            });
         }
     }])
     .controller('CategorieControllerCreate', ['$scope', '$location', 'ServiceCategorie', function ($scope, $location, ServiceCategorie) {

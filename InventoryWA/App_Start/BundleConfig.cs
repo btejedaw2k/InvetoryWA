@@ -30,13 +30,12 @@ namespace InventoryWA
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/angular.js",
-                        "~/Scripts/angular-animate.min.js",
-                        "~/Scripts/angular-route.min.js",
-                        "~/Scripts/angular-arial.min.js",
-                        "~/Scripts/angular-messages.min.js",
-                        "~/Scripts/angular-resource.min.js",
-                        "~/Scripts/angular-material.min.js"
-                        ));
+                        "~/Scripts/angular-animate.js",
+                        "~/Scripts/angular-route.js",
+                        "~/Scripts/angular-arial.js",
+                        "~/Scripts/angular-messages.js",
+                        "~/Scripts/angular-resource.js",
+                        "~/Scripts/ngDialog.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap.min.css",
@@ -46,7 +45,9 @@ namespace InventoryWA
                         "~/admin-lte/css/AdminLTE.min.css",
                         "~/admin-lte/Ionicons/css/ionicons.min.css",
                         "~/admin-lte/css/skins/skin-blue.min.css",
-                        "~/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"));
+                        "~/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css",
+                        "~/Content/ngDialog.css",
+                        "~/Content/ngDialog-theme-default.css"));
 
             // add controllers for application Angular JS
             bundles.Add(new ScriptBundle("~/bundles/appAngular").Include(

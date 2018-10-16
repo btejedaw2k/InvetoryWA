@@ -52,15 +52,13 @@
 
         service.DeleteCategorie = function (id, Nombre) {
             var deferred = $q.defer();
-            if (confirm('Seguro que desea eliminar la categoria <<' + Nombre + '>>?')) {
-                $http.post(
-                    '/Categories/Delete/', { id: id }
-                ).then(function () {
-                    deferred.resolve();
-                }, function () {
-                    deferred.reject;
-                });
-            }
+            $http.post(
+                '/Categories/Delete/', { id: id }
+            ).then(function () {
+                deferred.resolve();
+            }, function () {
+                deferred.reject;
+            });
             return deferred.promise;
         }
 
@@ -69,7 +67,6 @@
             $http.get(
                 '/Categories/GetCategorieExist/' + id + "?property=" + property + "&value=" + value
             ).then(function (result) {
-                console.log(result);
                 deferred.resolve(result.data.status);
             }, function () {
                 deferred.reject();
