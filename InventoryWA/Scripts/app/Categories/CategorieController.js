@@ -15,7 +15,7 @@ app.
             $('#toast-container').remove();
             toastr.warning(
                 "Usted esta eliminando la categoria. <b>" + Nombre + "</b><br />Desea continuar?<br />" +
-                "<button type='button' id='confirmationRevertYes' class='btn btn-primary' value='yes'>Eliminar</button>",
+                "<button type='button' id='confirmRemove' class='btn btn-primary' value='yes'>Eliminar</button>",
                 '<h4>Eliminando Categoria.</h4>',
                 {
                     tapToDismiss: false,
@@ -23,10 +23,13 @@ app.
                     extendedTimeOut: 0,
                     closeButton: true,
                     allowHtml: true,
+                    preventDuplicates: true,
                     preventOpenDuplicates: true,
                     newestOnTop: true,
+                    progressBar: true,
+                    limit: 1,
                     onShown: function (toast) {
-                        $("#confirmationRevertYes").click(function () {
+                        $("#confirmRemove").click(function () {
                             ServiceCategorie.DeleteCategorie(id, Nombre).then(function () {
                                 toastr.success('Categria eliminada correctamente', 'Informacion eliminada');
                                 $('#toast-container').remove();
