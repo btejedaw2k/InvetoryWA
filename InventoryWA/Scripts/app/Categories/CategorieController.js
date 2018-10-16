@@ -1,7 +1,7 @@
 ﻿var app = angular.module('InventoryWA');
 
 app.
-    controller('CategorieController', ['$scope', 'ngDialog', 'ServiceCategorie', function ($scope, ngDialog, ServiceCategorie) {
+    controller('CategorieController', ['$scope', '$uibModal', 'ServiceCategorie', function ($scope, $uibModal, ServiceCategorie) {
         $scope.categories = [];
         GetAllData();
 
@@ -10,42 +10,41 @@ app.
                 $scope.categories = result;
             });
         };
-
-        $scope.DeleteCategorie = function (id, Nombre) {
-            $('#toast-container').remove();
-            toastr.warning(
-                "Usted esta eliminando la categoria. <b>" + Nombre + "</b><br />Desea continuar?<br />" +
-                "<button type='button' id='confirmRemove' class='btn btn-primary' value='yes'>Eliminar</button>",
-                '<h4>Eliminando Categoria.</h4>',
-                {
-                    tapToDismiss: false,
-                    timeOut: 0,
-                    extendedTimeOut: 0,
-                    closeButton: true,
-                    allowHtml: true,
-                    preventDuplicates: true,
-                    preventOpenDuplicates: true,
-                    newestOnTop: true,
-                    progressBar: true,
-                    limit: 1,
-                    onShown: function (toast) {
-                        $("#confirmRemove").click(function () {
-                            ServiceCategorie.DeleteCategorie(id, Nombre).then(function () {
-                                toastr.success('Categria eliminada correctamente', 'Informacion eliminada');
-                                $('#toast-container').remove();
-                                GetAllData();
-                            }, function () {
-                                toastr.error('No se pudo eliminar la categoria');
-                            });
-                        });
-                    }
-                },
-            );
+        $scope.ok = function (id, Nombre) {
             
         }
+
+        $scope.DeleteCategorie = function (id, Nombre) {
+            $uibModal.open({
+                template: '<div class="modal-header"><h3 class="modal-title">Elimiando Categoria</h3>' +
+                    '<div class="modal-body">' +
+                    'Seguro que desesa eliminar la categoria <b>' + Nombre + '</b>?' +
+                    '</div>' +
+                    '</div><div class="modal-footer">' +
+                    '<button class="btn btn-primary" type="button" ng-click="ok(' + id + ', ' + Nombre + ')">OK</button>' +
+                    '<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>' +
+                    '</div>',
+                //size: 'sm',
+                windowClass: 'confirm-window',
+                controller: function ($scope, $uibModalInstance) {
+                    $scope.ok = function () {
+                        ServiceCategorie.DeleteCategorie(id, Nombre).then(function () {
+                            GetAllData();
+                        }, function () {
+                            toastr.error('No se pudo eliminar la categoria');
+                        });
+                        $uibModalInstance.close();
+                    };
+
+                    $scope.cancel = function () {
+                        $uibModalInstance.close();
+                    };
+                }
+            }).result.then(function () { }, function (res) { });
+        };
     }])
     .controller('CategorieControllerCreate', ['$scope', '$location', 'ServiceCategorie', function ($scope, $location, ServiceCategorie) {
-        
+
         $scope.SaveData = function (categorie) {
             ServiceCategorie.SaveData(categorie).then(function () {
                 toastr.success('Categoria guardado correctament.', 'Informacion guardada.');

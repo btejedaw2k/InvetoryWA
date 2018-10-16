@@ -1,4 +1,4 @@
-﻿var app = angular.module('InventoryWA', ['ngRoute', 'ngResource', 'ngDialog']);
+﻿var app = angular.module('InventoryWA', ['ngRoute', 'ngResource', 'ui.bootstrap']);
 
 app
     .config(['$routeProvider', '$locationProvider',
