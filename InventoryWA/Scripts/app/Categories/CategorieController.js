@@ -1,30 +1,34 @@
 ﻿var app = angular.module('InventoryWA');
 
 app.
-    controller('CategorieController', ['$scope', '$uibModal', 'ServiceCategorie', function ($scope, $uibModal, ServiceCategorie) {
+    controller('CategorieController', ['$scope', '$filter', '$uibModal', 'ServiceCategorie', function ($scope, $filter, $uibModal, ServiceCategorie) {
         $scope.categories = [];
+        $scope.currentPage = 1;
+        $scope.itemsPerPage = 2;
+
+
         GetAllData();
 
         function GetAllData() {
             ServiceCategorie.GetAllData().then(function (result) {
-                $scope.categories = result;
+                $scope.$watch('searchText', function (term) {
+                    $scope.categories = $filter('filter')(result, term);
+                })
             });
         };
-        $scope.ok = function (id, Nombre) {
-            
-        }
 
         $scope.DeleteCategorie = function (id, Nombre) {
             $uibModal.open({
-                template: '<div class="modal-header"><h3 class="modal-title">Elimiando Categoria</h3>' +
+                template:
+                    '<div class="modal-header"><h3 class="modal-title">Elimiando Categoria</h3></div>' +
                     '<div class="modal-body">' +
                     'Seguro que desesa eliminar la categoria <b>' + Nombre + '</b>?' +
-                    '</div>' +
-                    '</div><div class="modal-footer">' +
+                    '</div>' + 
+                    '<div class= "modal-footer" > ' +
                     '<button class="btn btn-primary" type="button" ng-click="ok(' + id + ', ' + Nombre + ')">OK</button>' +
                     '<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>' +
                     '</div>',
-                //size: 'sm',
+                size: 'md',
                 windowClass: 'confirm-window',
                 controller: function ($scope, $uibModalInstance) {
                     $scope.ok = function () {
@@ -42,6 +46,11 @@ app.
                 }
             }).result.then(function () { }, function (res) { });
         };
+
+        $scope.sortBy = function (column) {
+            $scope.sortColumn = column;
+            $scope.reverse = !$scope.reverse;
+        }
     }])
     .controller('CategorieControllerCreate', ['$scope', '$location', 'ServiceCategorie', function ($scope, $location, ServiceCategorie) {
 
