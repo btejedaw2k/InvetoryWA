@@ -203,7 +203,7 @@
                 </div>
 
                 <!-- search form (Optional) -->
-                <form action="#" method="get" class="sidebar-form">
+                @*<form action="#" method="get" class="sidebar-form">
                     <div class="input-group">
                         <input type="text" name="q" class="form-control" placeholder="Search...">
                         <span class="input-group-btn">
@@ -212,7 +212,7 @@
                             </button>
                         </span>
                     </div>
-                </form>
+                </form>*@
                 <!-- /.search form -->
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
@@ -223,9 +223,9 @@
                             <i class="fa fa-home"></i><span>Home</span>
                         </a>
                     </li>
-                    <li class="active" id="menu-home">
+                    <li id="menu-categories">
                         <a href=@Url.Action("Index", "Categories")>
-                            <i class="fa fa-home"></i><span>Categorias</span>
+                            <i class="fa fa-archive"></i><span>Categorias</span>
                         </a>
                     </li>
                     <li class="treeview">

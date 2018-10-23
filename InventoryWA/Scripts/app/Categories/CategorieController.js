@@ -1,13 +1,22 @@
 ﻿var app = angular.module('InventoryWA');
 
 app.
-    controller('CategorieController', ['$scope', '$uibModal', 'ServiceCategorie', function ($scope, $uibModal, ServiceCategorie) {
+    controller('CategorieController', ['$scope', '$filter', '$uibModal', 'ServiceCategorie', function ($scope, $filter, $uibModal, ServiceCategorie) {
         $scope.categories = [];
+        $scope.currentPage = 1;
+        $scope.itemsPerPage = 10;
+
         GetAllData();
+
+        $('.active').removeClass('active');
+        $('#menu-categories').addClass('active');
 
         function GetAllData() {
             ServiceCategorie.GetAllData().then(function (result) {
-                $scope.categories = result;
+                $scope.$watch('seachCategories', function (term) {
+                    $scope.categories = $filter('filter')(result, term);
+                });
+                //$scope.categories = result;
             });
         };
         $scope.ok = function (id, Nombre) {
@@ -29,6 +38,7 @@ app.
                 controller: function ($scope, $uibModalInstance) {
                     $scope.ok = function () {
                         ServiceCategorie.DeleteCategorie(id, Nombre).then(function () {
+                            toastr.warning("Categoria <b>" + Nombre + "</b> eliminada satisfactoriamente.", "Categoria Eliminada");
                             GetAllData();
                         }, function () {
                             toastr.error('No se pudo eliminar la categoria');
@@ -42,6 +52,11 @@ app.
                 }
             }).result.then(function () { }, function (res) { });
         };
+
+        $scope.sortBy = function (column) {
+            $scope.sortColumn = column;
+            $scope.reverse = !$scope.reverse;
+        }
     }])
     .controller('CategorieControllerCreate', ['$scope', '$location', 'ServiceCategorie', function ($scope, $location, ServiceCategorie) {
 
