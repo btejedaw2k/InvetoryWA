@@ -19,18 +19,16 @@ app.
                 //$scope.categories = result;
             });
         };
-        $scope.ok = function (id, Nombre) {
-            
-        }
 
         $scope.DeleteCategorie = function (id, Nombre) {
+            var strNombre = Nombre.replace(/ /g, "_");
             $uibModal.open({
                 template: '<div class="modal-header"><h3 class="modal-title">Elimiando Categoria</h3>' +
                     '<div class="modal-body">' +
                     'Seguro que desesa eliminar la categoria <b>' + Nombre + '</b>?' +
                     '</div>' +
                     '</div><div class="modal-footer">' +
-                    '<button class="btn btn-primary" type="button" ng-click="ok(' + id + ', ' + Nombre + ')">OK</button>' +
+                    "<button class='btn btn-primary' type='button' ng-click='ok(" + id + ", " + strNombre + ")'>OK</button>" +
                     '<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>' +
                     '</div>',
                 //size: 'sm',
@@ -38,7 +36,8 @@ app.
                 controller: function ($scope, $uibModalInstance) {
                     $scope.ok = function () {
                         ServiceCategorie.DeleteCategorie(id, Nombre).then(function () {
-                            toastr.warning("Categoria <b>" + Nombre + "</b> eliminada satisfactoriamente.", "Categoria Eliminada");
+                            var realName = Nombre.replace(/_/g, " ");
+                            toastr.warning("Categoria <b>" + realName + "</b> eliminada satisfactoriamente.", "Categoria Eliminada");
                             GetAllData();
                         }, function () {
                             toastr.error('No se pudo eliminar la categoria');
