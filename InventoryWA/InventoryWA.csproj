@@ -177,9 +177,14 @@
     <Compile Include="Migrations\201810110252487_updateCategoryNombreLength.Designer.cs">
       <DependentUpon>201810110252487_updateCategoryNombreLength.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810240143105_TableMiselaneos.cs" />
+    <Compile Include="Migrations\201810240143105_TableMiselaneos.Designer.cs">
+      <DependentUpon>201810240143105_TableMiselaneos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categorie.cs" />
     <Compile Include="Models\InventoryContext.cs" />
+    <Compile Include="Models\Miscelaneo.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2699,6 +2704,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810110252487_updateCategoryNombreLength.resx">
       <DependentUpon>201810110252487_updateCategoryNombreLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810240143105_TableMiselaneos.resx">
+      <DependentUpon>201810240143105_TableMiselaneos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
